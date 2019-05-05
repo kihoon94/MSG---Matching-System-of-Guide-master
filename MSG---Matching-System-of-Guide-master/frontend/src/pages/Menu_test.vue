@@ -48,7 +48,7 @@ export default {
         password: '',
         name: '',
         type: ''
-      }
+      },
     };
   }
 };
