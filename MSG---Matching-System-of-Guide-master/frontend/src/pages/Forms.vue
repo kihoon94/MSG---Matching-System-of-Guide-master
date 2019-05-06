@@ -48,6 +48,18 @@
                     @click="push(page.component, page.label)">작성하기
       </v-ons-button>
     </p>
+      <div class="test1" v-for="item in Total_data" >
+          {{item.location}} : {{item.text}}
+      </div>
+      {{'---------------------------------------------------'}}
+      <br>
+      <div id="todo-list-example">
+          <ul>
+              <li v-for="todo in filtered">
+                      {{todo.location}} : {{todo.text}}
+              </li>
+          </ul>
+      </div>
   </v-ons-page>
 </template>
 
@@ -62,12 +74,18 @@
           return false;
       },
       test_func(){
-        console.log(this.from_month);
-        console.log(this.from_day);
-        console.log(this.to_month);
-        console.log(this.to_day);
-        console.log(this.location);
-        console.log(this.SearchString);
+          console.log(this.filtered.length);
+          while(this.filtered.length !== 0){
+              this.filtered.pop();
+          }
+          for(var i=0; i<this.Total_data.length; i++){
+              if(this.Total_data[i].location === this.SearchString){
+                  this.filtered.push({
+                      location : this.Total_data[i].location,
+                      text : this.Total_data[i].text
+                  })
+              }
+          }
         alert("보냈다!");
       },
       push(page, key) {
@@ -86,6 +104,19 @@
     },
     data() {
       return {
+          filtered: [
+              {
+              location: '검색 결과',
+              text: '없음',
+              }
+          ],
+          nextId : 1,
+          Total_data:  [
+              {location: '서울', text:'광화문'},
+              {location: '서울', text:'청계천'},
+              {location: '부산', text:'해운대'},
+              {location: '부산', text:'서면'}
+          ],
         page: {
           component: Menu_test2,
           label: '가입글 등록'

@@ -43,14 +43,14 @@ export default {
       animationOptions: {},
       topPosition: 0,
       tabs: [
-        {
-          label: 'Test1',
-          icon: 'ion-camera, material:md-camera',
-          page: test_1,
-          theme: red,
-          style: this.md ? { maxWidth: '60px' } : {},
-          top: -105 // Toolbar + Tabbar heights
-        },
+        // {
+        //   label: 'Test1',
+        //   icon: 'ion-camera, material:md-camera',
+        //   page: test_1,
+        //   theme: red,
+        //   style: this.md ? { maxWidth: '60px' } : {},
+        //   top: -105 // Toolbar + Tabbar heights
+        // },
         {
           label: 'Test2',
           icon: this.md ? null : 'ion-home',
